@@ -1,0 +1,60 @@
+body { font-family: Arial, sans-serif; color: #222; }
+html { scroll-behavior: smooth; }
+h1, h2 { font-weight: bold; }
+
+.hero { background: #eef3ff; }
+.hero h1 { font-size: clamp(2.4rem, 5vw, 4rem); animation: aparecer 1.2s ease-out; }
+.hero p { color: #555; }
+.logo-grande {
+  padding: 45px; background: #3155b9; border-radius: 12px;
+  color: white; font-size: 6rem; font-weight: bold;
+  animation: latido 2s ease-in-out infinite alternate;
+}
+
+.loader {
+  display: inline-block; width: 22px; height: 22px; vertical-align: middle;
+  border: 3px solid #aabdeb; border-top-color: #3155b9; border-radius: 50%;
+  animation-name: girar; animation-duration: .9s;
+  animation-iteration-count: infinite; animation-timing-function: linear;
+  animation-direction: normal;
+}
+
+.card { overflow: hidden; transition: transform .4s ease; }
+.giro:hover, .giro:focus { transform: rotate(-3deg); }
+.escala:hover, .escala:focus { transform: scale(1.05); }
+.sube:hover, .sube:focus { transform: translateY(-15px); }
+.proyecto-img { display: grid; height: 180px; place-items: center; font-size: 2rem; font-weight: bold; }
+.cafe { background: #edcbb8; color: #704438; }
+.musica { background: #d4cbed; color: #4c427f; }
+.flora { background: #cde2cf; color: #326b4b; }
+
+.zona-3d { background: #eef3ff; }
+.escena { display: grid; place-items: center; perspective: 1000px; }
+.tarjeta-3d {
+  position: relative; width: 260px; height: 220px;
+  transform-style: preserve-3d; transition: transform .8s ease;
+}
+.tarjeta-3d:hover, .tarjeta-3d:focus { transform: rotateX(8deg) rotateY(180deg); }
+.cara {
+  position: absolute; inset: 0; display: grid; place-content: center;
+  padding: 25px; border-radius: 12px; color: white; text-align: center;
+  backface-visibility: hidden;
+}
+.frente { background: #3155b9; }
+.frente strong { display: block; margin-top: 15px; font-size: 1.5rem; }
+.reverso { background: #222; transform: rotateY(180deg); font-size: 1.4rem; }
+
+@keyframes aparecer {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes latido {
+  from { transform: scale(.96); }
+  to { transform: scale(1.04); }
+}
+@keyframes girar { to { transform: rotate(360deg); } }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+}
